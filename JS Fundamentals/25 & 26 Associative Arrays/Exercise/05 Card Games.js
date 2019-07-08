@@ -29,7 +29,7 @@ function solve(input) {
         let [namePlayer, gameCards] = elem.split(': ');
         let cards = gameCards.split(', ');
         if(!people.hasOwnProperty(namePlayer)) {
-            people[namePlayer] = cards;
+            people[namePlayer] = cards.toString();
         } else {
             let currentValue =  cards +','+ people[namePlayer];
             people[namePlayer] = currentValue;
