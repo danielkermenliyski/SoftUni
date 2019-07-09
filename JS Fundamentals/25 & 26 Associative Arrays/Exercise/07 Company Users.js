@@ -7,10 +7,10 @@ function solve(input) {
         let [company, id] = elem.split(' -> ');
 
         if (!companies.hasOwnProperty(company)) {
-            companies[company] = [];
+            companies[company] = new Set();
         }
 
-        companies[company].push(id);
+        companies[company].add(id);
 
     }
 
@@ -20,9 +20,8 @@ function solve(input) {
 
     for (let elem of sorted) {
         console.log(elem[0]);
-        let set = new Set(elem[1]);
 
-        for (let number of set) {
+        for (let number of elem[1]) {
             console.log(`-- ${number}`);
 
         }
