@@ -1,22 +1,11 @@
 function solve(word, text) {
 
-    for (const firstChar of word) {
-        for (const secondChar of text) {
-            if(firstChar === secondChar) {
-                text = text.replace(secondChar,'');
-            }
-
-        }
-
-    }
-
-    let set = new Set(text);
-    let output = '';
-    for (const argument of set) {
-       output+=argument;
-
-    }
-    console.log(output);
+let old;
+while (old !== text) {
+    old = text;
+    text = text.replace(word,'');
+}
+console.log(text);
 }
 
 solve('ice', 'kkicegiciceeb');
