@@ -4,14 +4,22 @@ let savedWord = word;
 word = word.toLowerCase();
 text = text.toLowerCase();
 
-if(text.includes(word)) {
-    console.log(savedWord);
-} else {
-    console.log(`${savedWord} not found!`)
-}
+let arr = text.split(' ');
+
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] === word) {
+            console.log(savedWord);
+            return;
+        }
+    }
+
+
+        console.log(`${savedWord} not found!`)
+
 
 }
 
-solve('python',
+solve('javascript',
     'JavaScript is the best programming language'
+
 );
