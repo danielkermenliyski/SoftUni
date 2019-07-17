@@ -75,6 +75,7 @@ function solve(input) {
 
 
 
+
     //print the result
 
     for (let row of sortedDLC) {
