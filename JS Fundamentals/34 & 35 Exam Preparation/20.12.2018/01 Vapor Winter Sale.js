@@ -71,7 +71,7 @@ function solve(input) {
 
         return first - second;
     });
-    let a=5;
+
 
 
 
