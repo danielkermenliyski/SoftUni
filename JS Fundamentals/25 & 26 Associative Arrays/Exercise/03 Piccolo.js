@@ -12,7 +12,7 @@ function solve(input) {
             }
         }
     }
-let a=5;
+
     let sorted = [...Object.entries(cars)];
     sorted.sort((a,b) =>
         a[0].localeCompare(b[0]));
