@@ -9,7 +9,7 @@ function solve(input) {
 // fill the dictionary
     for (let word of words) {
 
-        let [term, definition] = word.split(':');
+        let [term, definition] = word.split(': ');
 
         if (!dictionary.hasOwnProperty(term)) {
             dictionary[term] = [];
@@ -31,23 +31,28 @@ function solve(input) {
 
             for (let i = 0; i < sorted.length; i++) {
 
-                console.log(`-${sorted[i]}`);
+                console.log(` -${sorted[i]}`);
             }
         }
     }
 
     // Check the command
 
-    let output = '';
-    if (command === 'List') {
+    let output = [];
+
+    if (command[0] === 'List') {
         for (let rows in dictionary) {
-            output += rows;
+            output.push(rows);
         }
-        console.log(rows);
+
+        let sortedArray = output.sort((a,b) => {
+            return a.localeCompare(b);
+        });
+        console.log(output.join(' '));
     }
 
 }
 
-solve(['tackle: the equipment required for a task or sport | code: write code for a computer program | bit: a small piece, part, or quantity of something | tackle: make determined efforts to deal with a problem | bit: a short time or distance',
+solve([ 'tackle: the equipment required for a task or sport | code: write code for a computer program | bit: a small piece, part, or quantity of something | tackle: make determined efforts to deal with a problem | bit: a short time or distance',
     'bit | code | tackle',
-    'End']);
+    'End' ]);
