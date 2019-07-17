@@ -47,30 +47,34 @@ function solve(input) {
     }
 
     // sort the object
+   // console.log(games);
+
     for (let key in games) {
         let value = games[key];
         if (value.length === 2) {
-
             gamesDLC[key] = value;
-            delete key.value;
+            delete games[key];
         }
     }
 
+
     let sorted = Object.entries(games).sort((a, b) => {
-        let first = a[1][0];
-        let second = b[1][0];
-
-        return first - second;
-    });
-
-    let sortedDLC = Object.entries(games).sort((a, b) => {
         let first = a[1][0];
         let second = b[1][0];
 
         return second - first;
     });
 
-    // print the result
+    let sortedDLC = Object.entries(gamesDLC).sort((a, b) => {
+        let first = a[1][0];
+        let second = b[1][0];
+
+        return first - second;
+    });
+
+
+
+    //print the result
 
     for (let row of sortedDLC) {
         console.log(`${row[0]} - ${row[1][1]} - ${row[1][0].toFixed(2)}`);
@@ -89,4 +93,4 @@ function solve(input) {
 solve(['WitHer 3-50, FullLife 3-60, WitHer 3:Blood and Beer, Cyberfunk 2077-120, League of Leg Ends-10, League of Leg Ends:DoaT']);
 
 
-//solve([ 'Center Strike-14.99, FortLite-25, BattleShield 5-64.74, BattleShield 5:CoD edition, Dog of War-45, Dead Red Redemption-100, Dead Red Redemption:no DLC' ]);
+solve([ 'Center Strike-14.99, FortLite-25, BattleShield 5-64.74, BattleShield 5:CoD edition, Dog of War-45, Dead Red Redemption-100, Dead Red Redemption:no DLC' ]);
