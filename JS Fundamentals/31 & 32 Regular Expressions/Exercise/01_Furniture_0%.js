@@ -3,11 +3,12 @@ function solve(arr) {
     console.log('Bought furniture:');
     let totalSum = 0;
     arr.forEach((line) => {
-        const pattern = />>(?<name>[A-Za-z]+)<<([0-9]+[.]?[0-9]*)!([\d]+)/g;
+        const pattern = />>([A-Za-z]+)<<([0-9]+[.]?[0-9]*)!([\d]+)/g;
+
         let result = pattern.exec(line);
 
         if(result){
-            let currentSum = Number(result.groups.price) * Number(result.groups.quantity);
+            //let currentSum = Number(result.groups[2]) * Number(result.groups[3]);
             console.log(result.groups);
         }
 
