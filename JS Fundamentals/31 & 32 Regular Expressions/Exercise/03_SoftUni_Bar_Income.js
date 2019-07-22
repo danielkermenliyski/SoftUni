@@ -3,7 +3,7 @@ function solve(arr) {
     arr.pop();
     let totalIncome = 0;
     arr.forEach((line) => {
-        let pattern = /%([A-Z][a-z]+)%<(\w+)>\|([0-9]+)\|([0-9]+\.?[0-9]*)\$/gm;
+        let pattern = /%([A-Z][a-z]+)%[^|$%.]*<(\w+)>[^|$%.]*\|([0-9]+)\|[^|$%.]*?([0-9]+\.?[0-9]*)\$/gm;
 
         let result = pattern.exec(line);
         let currentSum = Number(result[3]) * Number(result[4]);
