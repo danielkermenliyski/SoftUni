@@ -20,7 +20,7 @@ solve(['%George%<Croissant>|2|10.3$',
     'end of shift']
 );
 
-//solve([ '%InvalidName%<Croissant>|2|10.3$',
+// solve([ '%InvalidName%<Croissant>|2|10.3$',
 //     '%Peter%<Gum>1.3$',
 //     '%Maria%<Cola>|1|2.4',
 //     '%Valid%<Valid>valid|10|valid20$',
