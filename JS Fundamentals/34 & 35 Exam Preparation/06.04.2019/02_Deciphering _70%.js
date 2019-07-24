@@ -17,15 +17,15 @@ function solve(input) {
     }
 
     //check validity
-    for (let ch of newText) {
-        let current = newText.charCodeAt(ch);
-        let check = (current >= 100 && current <= 125) || (current === 35);
-        if (!check) {
-            console.log('This is not the book you are looking for.');
-            return
-        }
+    let pattern = /^[d-z{}|#]+$/gm;
+
+    let result = pattern.exec(text);
+
+    if(result){
+        console.log(newText);
+    } else {
+        console.log('This is not the book you are looking for.')
     }
-    console.log(newText);
 
 }
 
