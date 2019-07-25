@@ -1,5 +1,6 @@
 function solve(input) {
 
+    //escape spaces and put array into string with join
     input.pop();
     let mappedSong = [];
     input.forEach((line) => {
