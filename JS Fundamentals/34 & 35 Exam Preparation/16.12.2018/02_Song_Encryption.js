@@ -1,9 +1,10 @@
 function solve(input) {
 
     //escape spaces and put array into string with join
-    input.pop();
-    let mappedSong = [];
-    input.forEach((line) => {
+
+    let line = input.shift();
+        let mappedSong = [];
+        while(line!=='end'){
         let pattern = /^([A-Z][a-z'\s]+):([A-Z][A-Z\s]+[A-Z])$/gm;
         let result = pattern.exec(line);
         if (result) {
@@ -80,9 +81,8 @@ function solve(input) {
         }
 
         mappedSong = [];
-    });
-
-
+        line=input.shift();
+    }
 }
 
 solve([
