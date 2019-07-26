@@ -14,13 +14,25 @@ function solve(input) {
                 let currentChar = artist.charCodeAt(i);
                 let newChar = currentChar + len;
 
-                if (newChar > 90 && newChar < 97) {
+                if (currentChar === 32) {
+                    mappedSong.push(' ');
+                    continue;
+                }
+
+                if (currentChar === 39) {
+                    mappedSong.push("'");
+                    continue;
+                }
+
+                if(i!==0) {
+                    if (newChar > 122) {
+                        let calcChar = newChar - 122;
+                        let calcCharFinal = 96 + calcChar;
+                        newChar = calcCharFinal;
+                    }
+                } else if (newChar > 90) {
                     let calcChar = newChar - 90;
                     let calcCharFinal = 65 + calcChar;
-                    newChar = calcChar;
-                } else if (newChar > 122) {
-                    let calcChar = newChar - 122;
-                    let calcCharFinal = 97 + calcChar;
                     newChar = calcChar;
                 }
 
@@ -33,20 +45,26 @@ function solve(input) {
 
             let lenSong = song.length;
 
-            for (let i = 0; i < lenSong; i++) {
+            for (let i = 0; i < song.length; i++) {
 
 
                 let currentChar = song.charCodeAt(i);
                 let newChar = currentChar + len;
 
-                if (newChar > 90 && newChar < 97) {
+                if (currentChar === 32) {
+                    mappedSong.push(' ');
+                    continue;
+                }
+
+                if (currentChar === 39) {
+                    mappedSong.push("'");
+                    continue;
+                }
+
+                if (newChar > 90) {
                     let calcChar = newChar - 90;
-                    let calcCharFinal = 65 + calcChar;
-                    newChar = calcChar;
-                } else if (newChar > 122) {
-                    let calcChar = newChar - 122;
-                    let calcCharFinal = 97 + calcChar;
-                    newChar = calcChar;
+                    let calcCharFinal = 64 + calcChar;
+                    newChar = calcCharFinal;
                 }
 
                 let mappedChar = String.fromCharCode(newChar);
@@ -55,23 +73,22 @@ function solve(input) {
             }
         }
 
+        if (mappedSong.join('') === '') {
+            console.log(`Invalid input!`)
+        } else {
+            console.log(`Successful encryption: ${mappedSong.join('')}`);
+        }
 
+        mappedSong = [];
     });
-
-    console.log(mappedSong);
 
 
 }
 
-solve(['Eminem:VENOM',
+solve([
     'Linkin park:NUMB',
+    'Eminem:VENOM',
     'Drake:NONSTOP',
     'Adele:HELLO',
     'end']);
 
-// solve(['Michael Jackson:ANOTHER PART OF ME',
-//     'Adele:ONE AND ONLY',
-//     'Guns n\'roses:NOVEMBER RAIN',
-//     'Christina Aguilera: HuRt',
-//     'end']
-// );
