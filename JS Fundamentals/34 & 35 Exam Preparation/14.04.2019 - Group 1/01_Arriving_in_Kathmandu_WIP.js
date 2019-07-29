@@ -1,7 +1,5 @@
 function solve(input) {
 
-    let a=5;
-
     let line = input.shift();
 
     while (line !== 'Last note') {
@@ -16,7 +14,7 @@ function solve(input) {
             let len = Number(result[2]);
             let lenCode = Number(result[3].length);
             if (len === lenCode) {
-                let patternName = /[A-Za-z]+/gm;
+                let patternName = /[A-Za-z0-9]+/gm;
 
                 let validNames = [];
                 let validName = null;
