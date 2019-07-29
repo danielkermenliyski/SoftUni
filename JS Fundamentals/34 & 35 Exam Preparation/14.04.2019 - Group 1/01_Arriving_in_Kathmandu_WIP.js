@@ -5,6 +5,8 @@ function solve(input) {
         let pattern = /^([A-Za-z0-1!@#$?]+)=(\d+)<<(.+)$/gm;
 
         let result = pattern.exec(line);
+
+
         console.log(result);
 
         line = input.shift();
