@@ -22,7 +22,7 @@ function solve(input) {
 
     const findAllEmoji = (string) => {
 
-        let pattern = /\s(:[a-z]{4,}:)\s/gm;
+        let pattern = /[\s,.!?]:([a-z]{4,}):[\s,.!?]/gm;
         let validEmojis = [];
         let validEmoji = null;
 
@@ -35,7 +35,6 @@ function solve(input) {
 
     let validEmojisArray = findAllEmoji(input);
 
-    // line => array ['seven', [hamster]] => output sum = 1301
     const sumAllLetters = (line) => {
 
         let sum = 0;
