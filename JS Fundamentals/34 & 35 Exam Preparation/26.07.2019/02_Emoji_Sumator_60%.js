@@ -1,7 +1,7 @@
 function solve(input) {
 
     let finalWord = input.pop();
-     // input => '115.101' => output seven
+
     const convertToAscii = (string) => {
 
         let output = [];
@@ -22,7 +22,7 @@ function solve(input) {
 
     const findAllEmoji = (string) => {
 
-        let pattern = /[\s,.!?]:([a-z]{4,}):[\s,.!?]/gm;
+        let pattern = /\s(:[a-z]{4,}:)[\s,.!?]/gm;
         let validEmojis = [];
         let validEmoji = null;
 
@@ -66,8 +66,9 @@ function solve(input) {
 
 }
 
-// solve(['Hello I am Mark from :England: and I am :one: :seven: years old, I have a :hamster: as pet.',
-//     '115:101:118:101:110']);
+solve(['Hello I am Mark from :England: and I am :one: :seven: years old, I have a :hamster: as pet.',
+    '115:101:118:101:110']);
 
 solve([ 'In the Sofia Zoo there are many animals, such as :ti ger:, :elephan:t, :monk3y:, :goriLLa:, :fox:.',
-  '97:101:117:114' ]);
+    '97:101:117:114' ]);
+
