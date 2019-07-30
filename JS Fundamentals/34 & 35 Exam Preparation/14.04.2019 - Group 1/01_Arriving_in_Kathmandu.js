@@ -3,7 +3,7 @@ function solve(input) {
     let line = input.shift();
 
     while (line !== 'Last note') {
-        let pattern = /^([A-Za-z0-1!@#$?]+)=(\d+)<<(.+)$/gm;
+        let pattern = /^([A-Za-z0-9!@#$?]+)=(\d+)<<(.+)$/gm;
 
         let result = pattern.exec(line);
 
@@ -16,13 +16,9 @@ function solve(input) {
             if (len === lenCode) {
                 let patternName = /[A-Za-z0-9]+/gm;
 
-                let validNames = [];
-                let validName = null;
-                while ((validName = patternName.exec(result[1])) !== null) {
-                    validNames.push(validName[0]);
-                }
+                let nameOfMountain = result[1].replace(/[!@#$?]+/g, '');
 
-                console.log(`Coordinates found! ${validNames.join('')} -> ${result[3]}`)
+                console.log(`Coordinates found! ${nameOfMountain} -> ${result[3]}`)
 
             } else {
                 console.log('Nothing found!')
