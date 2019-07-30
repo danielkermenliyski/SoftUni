@@ -1,75 +1,49 @@
 function solve(input) {
-
     let animals = {};
-
-    for (let line of input) {
-
-        if (line === 'Last Info') {
-            break;
-        }
-
+    let areas = {};
+    let line = input.shift();
+    while (line !== 'Last Info') {
         let [command, name, limit, area] = line.split(':');
-
         if (command === 'Add') {
             if (!animals.hasOwnProperty(name)) {
-                animals[name] = [];
-                animals[name].push(area);
-                animals[name].push(0);
+                animals[name] = 0;
+                if (!areas.hasOwnProperty(area)) {
+                    areas[area] = 0;
+                }
+                areas[area] += 1;
             }
-            let currentLimit = Number(animals[name][1]);
-            animals[name][1] = Number(limit) + currentLimit;
-        } else {
+            animals[name] += +limit;
+        } else if (command === 'Feed') {
             if (animals.hasOwnProperty(name)) {
-                animals[name][1] -= limit;
-                if (animals[name][1] <= 0) {
+                animals[name] -= +limit;
+                if (animals[name] <= 0) {
                     console.log(`${name} was successfully fed`);
                     delete animals[name];
+                    areas[area]--;
                 }
             }
         }
+        line = input.shift();
     }
 
     let sortedAnimals = Object.entries(animals).sort((a, b) => {
-        return b[1][1] - a[1][1] || a[0].localeCompare(b[0]);
-
+        return b[1] - a[1] || a[0].localeCompare(b[0]);
     });
-
-    let areas = [];
 
     console.log('Animals:');
-    if (sortedAnimals.length > 0) {
-
-        sortedAnimals.forEach((line) => {
-            console.log(`${line[0]} -> ${line[1][1]}g`);
-            areas.push(line[1][0]);
-        });
-    }
-
-    let areasObj = {};
-
-    areas.forEach((area) => {
-        if (!areasObj.hasOwnProperty(area)) {
-            areasObj[area] = 1
-        } else {
-            areasObj[area] += 1;
-        }
+    sortedAnimals.forEach(line => {
+        console.log(`${line[0]} -> ${line[1]}g`);
     });
 
-    let sortedAreas = Object.entries(areasObj).sort((a, b) => {
-        return b[1] - a[1] || b[0].localeCompare(a[0]);
+    let sortedAreas = Object.entries(areas).filter(el => el[1] > 0).sort((a, b) => {
+        return b[1] - a[1];
     });
 
     console.log('Areas with hungry animals:');
-    if (sortedAreas.length > 0) {
-
-        sortedAreas.forEach((area) => {
-            console.log(`${area[0]} : ${area[1]}`)
-        })
-    }
-
-
+    sortedAreas.forEach(area => {
+        console.log(`${area[0]} : ${area[1]}`);
+    });
 }
-
 
 // solve(['Add:Maya:7600:WaterfallArea',
 //     'Add:Bobbie:6570:DeepWoodsArea',
