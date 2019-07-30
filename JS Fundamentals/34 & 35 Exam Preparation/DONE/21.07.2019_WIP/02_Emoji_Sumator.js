@@ -22,7 +22,7 @@ function solve(input) {
 
     const findAllEmoji = (string) => {
 
-        let pattern = /\s(:[a-z]{4,}:)[\s,.!?]/gm;
+        let pattern = /(?<=[\s])(:[a-z]{4,}:)(?=[\s,.!?])/gm;
         let validEmojis = [];
         let validEmoji = null;
 
