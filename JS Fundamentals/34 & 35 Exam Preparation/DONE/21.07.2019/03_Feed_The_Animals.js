@@ -6,7 +6,7 @@ function solve(input) {
         let [command, name, limit, area] = line.split(':');
         if (command === 'Add') {
             if (!animals.hasOwnProperty(name)) {
-                animals[name] = 0;
+                animals[name] = 0
                 if (!areas.hasOwnProperty(area)) {
                     areas[area] = 0;
                 }
@@ -45,17 +45,17 @@ function solve(input) {
     });
 }
 
-// solve(['Add:Maya:7600:WaterfallArea',
-//     'Add:Bobbie:6570:DeepWoodsArea',
-//     'Add:Adam:4500:ByTheCreek',
-//     'Add:Jamie:1290:RiverArea',
-//     'Add:Gem:8730:WaterfallArea',
-//     'Add:Maya:1230:WaterfallArea',
-//     'Add:Jamie:560:RiverArea',
-//     'Feed:Bobbie:6300:DeepWoodsArea',
-//     'Feed:Adam:4650:ByTheCreek',
-//     'Feed:Jamie:2000:RiverArea',
-//     'Last Info']);
+solve(['Add:Maya:7600:WaterfallArea',
+    'Add:Bobbie:6570:DeepWoodsArea',
+    'Add:Adam:4500:ByTheCreek',
+    'Add:Jamie:1290:RiverArea',
+    'Add:Gem:8730:WaterfallArea',
+    'Add:Maya:1230:WaterfallArea',
+    'Add:Jamie:560:RiverArea',
+    'Feed:Bobbie:6300:DeepWoodsArea',
+    'Feed:Adam:4650:ByTheCreek',
+    'Feed:Jamie:2000:RiverArea',
+    'Last Info']);
 
 
 solve(['Add:Bonie:3490:RiverArea',
